@@ -631,9 +631,9 @@
           } else if (resize == true) {
             if ($(Selector.BODY).hasClass(ClassName.OPEN)) {
               $(Selector.BODY).removeClass(ClassName.OPEN);
-            } else if ($(Selector.BODY).hasClass(ClassName.CLOSED)) {
+            }/* else if ($(Selector.BODY).hasClass(ClassName.CLOSED)) {
               this.expand();
-            }
+            }*/
           }
         }
       };
