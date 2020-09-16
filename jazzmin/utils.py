@@ -80,6 +80,10 @@ def get_custom_url(url, admin_site='admin'):
 
     if "/" in url:
         return url
+
+    if url.startswith("javascript"):
+        return url
+
     try:
         url = reverse(url.lower(), current_app=admin_site)
     except NoReverseMatch:

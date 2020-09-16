@@ -106,13 +106,6 @@
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left" id="jazzy-usermenu">
                         <span class="dropdown-header">{% trans 'Account' %}</span>
                         <div class="dropdown-divider"></div>
-                        <a href="{% url 'admin:password_change' %}" class="dropdown-item">
-                            <i class="fas fa-key mr-2"></i> {% trans 'Change password' %}
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="{% url 'admin:logout' %}" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> {% trans 'Log out' %}
-                        </a>
                         {% get_user_menu user request.current_app|default:"admin" as user_menu %}
                         {% for link in user_menu %}
                             <div class="dropdown-divider"></div>
@@ -120,6 +113,13 @@
                                 <i class="{{ link.icon }} mr-2"></i> {% trans link.name %}
                             </a>
                         {% endfor %}
+                        <a href="{% url 'admin:password_change' %}" class="dropdown-item">
+                            <i class="fas fa-key mr-2"></i> {% trans 'Change password' %}
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'admin:logout' %}" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> {% trans 'Log out' %}
+                        </a>
                         <div class="dropdown-divider"></div>
                         {% if perms|can_view_self %}
                             <a href="{% jazzy_admin_url request.user request.current_app|default:"admin" %}" class="dropdown-item dropdown-footer">{% trans 'See Profile' %}</a>
